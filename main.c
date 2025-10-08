@@ -6,8 +6,10 @@ double resistorCalc();
 double baseConverter();
 
 int main(){
-    /* code */
-    printf("Hello, World!\n");
+    
+    double hasil = resistorCalc();
+    printf("Hasil: %.2lf\n", hasil);
+    
     return 0;
 }
 
@@ -17,21 +19,28 @@ double VIR_Calc(){
     printf("1 - Menghitung Tegangan\n");
     printf("2 - Menghitung Arus\n");
     printf("3 - Menghitung Hambatan\n");
+    printf("Pilih mode: ");
     scanf("%d", &mode);
     double v, i, r;
-    if (mode = 1) {
-        scanf("%f", &i);
-        scanf("%f", &r);
+    if (mode == 1) {
+        printf("Masukkan nilai Arus (I): ");
+        scanf("%lf", &i);
+        printf("Masukkan nilai Hambatan (R): ");
+        scanf("%lf", &r);
         v = i * r;
         return v;
-    } else if (mode = 2) {
-        scanf("%f", &v);
-        scanf("%f", &r);
+    } else if (mode == 2) {
+        printf("Masukkan nilai Tegangan (V): ");
+        scanf("%lf", &v);
+        printf("Masukkan nilai Hambatan (R): ");
+        scanf("%lf", &r);
         i = v / r;
         return i;
-    } else if (mode = 3) {
-        scanf("%f", &v);
-        scanf("%f", &i);
+    } else if (mode == 3) {
+        printf("Masukkan nilai Tegangan (V): ");
+        scanf("%lf", &v);
+        printf("Masukkan nilai Arus (I): ");
+        scanf("%lf", &i);
         r = v / i;
         return r;
     } else {
@@ -46,21 +55,28 @@ double powerCalc(){
     printf("1 - Menghitung Daya\n");
     printf("2 - Menghitung Tegangan\n");
     printf("3 - Menghitung Arus\n");
+    printf("Pilih mode: ");
     scanf("%d", &mode);
     double p, v, i;
-    if (mode = 1) {
-        scanf("%f", &v);
-        scanf("%f", &i);
+    if (mode == 1) {
+        printf("Masukkan nilai Tegangan (V): ");
+        scanf("%lf", &v);
+        printf("Masukkan nilai Arus (I): ");
+        scanf("%lf", &i);
         p = v * i;
         return p;
-    } else if (mode = 2) {
-        scanf("%f", &p);
-        scanf("%f", &i);
+    } else if (mode == 2) {
+        printf("Masukkan nilai Daya (P): ");
+        scanf("%lf", &p);
+        printf("Masukkan nilai Arus (I): ");
+        scanf("%lf", &i);
         v = p / i;
         return v;
-    } else if (mode = 3) {
-        scanf("%f", &p);
-        scanf("%f", &v);
+    } else if (mode == 3) {
+        printf("Masukkan nilai Daya (P): ");
+        scanf("%lf", &p);
+        printf("Masukkan nilai Tegangan (V): ");
+        scanf("%lf", &v);
         i = p / v;
         return i;
     } else {
@@ -74,23 +90,24 @@ double resistorCalc(){
     printf("Pilih mode perhitungan:\n");
     printf("1 - Rangkaian Seri\n");
     printf("2 - Rangkaian Parallel\n");
+    printf("Pilih mode: ");
     scanf("%d", &mode);
     int n;
     printf("Masukkan jumlah resistor: ");
     scanf("%d", &n);
-    int res[n];
+    double res[n];
     double hasil = 0;
     for (int i = 0; i < n; i++)
     {
-        printf("Masukkan nilai resistor ke-%d :", i);
-        scanf("%d", &res[i]);
+        printf("Masukkan nilai resistor ke-%d :", i+1);
+        scanf("%lf", &res[i]);
     }
-    if (mode = 1) {
+    if (mode == 1) {
         for (int i = 0; i < n; i++)
         {
             hasil += res[i];
         } 
-    } else if (mode = 2) {
+    } else if (mode == 2) {
         double hasil_kebalikan = 0;
         for (int i = 0; i < n; i++)
         {
