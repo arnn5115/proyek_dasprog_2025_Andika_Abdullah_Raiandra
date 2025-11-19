@@ -7,7 +7,7 @@ double baseConverter();
 
 int main(){
     
-    double hasil = resistorCalc();
+    double hasil = baseConverter();
     printf("Hasil: %.2lf\n", hasil);
     
     return 0;
@@ -120,4 +120,109 @@ double resistorCalc(){
     }
     
     return hasil;
+}
+
+double baseConverter(){
+    int mode;
+    printf("Pilih mode perhitungan:\n");
+    printf("1 - Biner ke Desimal\n");
+    printf("2 - Octal ke Desimal\n");
+    printf("3 - Heksadesimal ke Desimal\n");
+    printf("Pilih mode: ");
+    scanf("%d", &mode);
+    char input[9];
+    int dec = 0, i = 0, acc = 1, k = 0;
+    if (mode == 1) {
+        printf("Masukkan nilai Biner (max 8-bit): ");
+        scanf("%8s", input);
+        // cari \0
+        while (input[i] != '\0'){
+            i++;
+        }
+        i--;
+        while (i >= 0){
+            if (input[i] == '1'){
+            // f pangkat
+                acc = 1;
+                for (int j=0; j<k; j++){
+                    acc *= 2;
+                }
+                dec += acc;
+            }
+            k++;
+            i--;
+        }
+        return dec;
+    } else if (mode == 2) {
+        printf("Masukkan nilai Octal (max 8 digit): ");
+        scanf("%8s", input);
+        // cari \0
+        while (input[i] != '\0'){
+            i++;
+        }
+        i--;
+        while (i >= 0){
+            // f pangkat
+            int acc = 1;
+            for (int j=0; j<k; j++){
+                acc *= 8;
+            }
+            dec += acc * (input[i] - 48);
+            k++;
+            i--;
+        }
+        return dec;
+    } else if (mode == 3) {
+        printf("Masukkan nilai Heksadesimal (max 6 digit): ");
+        scanf("%8s", input);
+        // cari \0
+        while (input[i] != '\0'){
+            i++;
+        }
+        i--;
+        while (i >= 0){
+            // f pangkat
+            int acc = 1;
+            for (int j=0; j<k; j++){
+                acc *= 16;
+            }
+            int digit;
+            if (input[i] > 57){
+                switch (input[i]){
+                case 'A':
+                    digit = 10;
+                    break;
+                case 'B':
+                    digit = 11;
+                    break;
+                case 'C':
+                    digit = 12;
+                    break;
+                case 'D':
+                    digit = 13;
+                    break;
+                case 'E':
+                    digit = 14;
+                    break;
+                case 'F':
+                    digit = 15;
+                    break;
+                
+                default:
+                digit = 0;
+                    break;
+                }
+            }
+            else {
+                digit = (input[i] - 48);
+            }
+            dec += acc * digit;
+            k++;
+            i--;
+        }
+        return dec;
+    } else {
+        printf("Error: Mode tidak ditemukan\n");
+        return -1;
+    }
 }
