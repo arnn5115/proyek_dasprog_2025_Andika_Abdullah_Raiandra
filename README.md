@@ -6,6 +6,8 @@
 
 Proyek ini adalah program kalkulator multifungsi yang ditulis dalam bahasa C. Program ini menyediakan berbagai fungsi perhitungan untuk kelistrikan dan konversi bilangan.
 
+**Catatan**: Implementasi saat ini pada fungsi `main()` menjalankan fungsi Konverter Basis Bilangan. Fungsi-fungsi lain tersedia dalam kode dan dapat digunakan dengan memodifikasi pemanggilan fungsi di `main()`.
+
 ## Fitur
 
 Program ini menyediakan 4 fungsi utama:
@@ -65,7 +67,7 @@ Contoh:
 ```
 Pilih mode perhitungan:
 1 - Biner ke Desimal
-2 - Octal ke Desimal
+2 - Oktal ke Desimal
 3 - Heksadesimal ke Desimal
 Pilih mode: 1
 Masukkan nilai Biner (max 8-bit): 1101
